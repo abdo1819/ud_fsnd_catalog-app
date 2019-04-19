@@ -1,0 +1,24 @@
+<form action="#" method = "post">
+    <label for="name">Name:</label>
+    <input type ="text" name="title" placeholder="{{catItem.title}}">
+    <br/>
+    <label for="description">description</label>
+    <input type ="text" name="description" placeholder="{{catItem.description}}">
+    
+    <br/>
+    <label for="catagory">catagory</label>
+
+    <select name="catagory_id" >
+        {% for category in categories %}
+            <option value="{{category.id}}">{{category.name}}</option>
+        {% endfor %}
+    </select>
+
+    <!-- <input type ="text" name="catagory" placeholder="{{catItem.category.name}}"> -->
+
+    <br/>
+
+    <!-- TODO make catagory drop menu -->
+    <button type="submit" >submit</button>
+
+</form>

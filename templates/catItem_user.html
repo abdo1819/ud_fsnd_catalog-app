@@ -1,0 +1,28 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    
+  <ul>
+  {% for message in messages %}
+      <li> <strong> {{ message }} </strong> </li>
+  {% endfor %}
+  </ul>
+  {% endif %}
+{% endwith %}
+
+
+<div class="row">
+    <h3>{{catItem.title}}</h3>
+    <p>
+        {{catItem.description}}
+    </p>
+    <a href = "{{url_for('editItem', item_title = catItem.title)}}">
+        <p>edit</p>
+    </a>
+
+    <a href="{{url_for('deleteItem', item_title = catItem.title)}}">
+        <p>delete</p>
+    </a>
+
+        
+
+</div>

@@ -1,0 +1,11 @@
+<h2> Are you sure you want to delete {{catItem.title}}? </h2>
+
+<form action="#" method='post'>
+
+    <button type="submit" type="submit"> Delete </button>
+    
+    <a href='{{url_for('showCatItems',category_name = catagory.name)}}'>
+        <button> Cancel</button>
+    </a>
+
+</form>
