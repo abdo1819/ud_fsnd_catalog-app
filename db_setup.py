@@ -1,6 +1,8 @@
+#!/usr/bin/env python3.7
+
 import os
 import sys
-from sqlalchemy import Column, ForeignKey, Integer, String
+from sqlalchemy import Column, ForeignKey, Integer, String,DateTime,func
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship
 from sqlalchemy import create_engine
@@ -8,7 +10,11 @@ from sqlalchemy import create_engine
 Base = declarative_base()
 
 
-
+class User(Base):
+    __tablename__='user'
+    name =Column(String(80), nullable = False)
+    id = Column(Integer, primary_key = True)
+    email =Column(String(150), nullable = True)
 
 class Category(Base):
     __tablename__ = 'category'
@@ -35,7 +41,9 @@ class CatItem(Base):
     description = Column(String(550))
     cat_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
-
+    
+    user_id =Column(Integer,ForeignKey('user.id'))
+    user =relationship(User)
 
 # serilizing item
     @property
@@ -48,6 +56,18 @@ class CatItem(Base):
         }
 
 
+
+class Log(Base):
+    __tablename__='log'
+    id = Column(Integer, primary_key=True)
+    
+    user_id = Column(Integer,ForeignKey('user.id'))
+    user = relationship(User)
+
+    item_id = Column(Integer,ForeignKey('cat_item.id'))
+    item = relationship(CatItem)
+
+    time = Column(DateTime, default=func.now())
 
 
 engine = create_engine('sqlite:///catalog.db')
