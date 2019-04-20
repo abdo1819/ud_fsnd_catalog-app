@@ -1,22 +1,39 @@
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    
-  <ul>
-  {% for message in messages %}
-      <li> <strong> {{ message }} </strong> </li>
-  {% endfor %}
-  </ul>
-  {% endif %}
-{% endwith %}
+{% extends "main.html" %}
+{% block content %}
 
-{% for category in categories %}
+<div class="flash">
+    <!-- flash masseges if any avialble -->
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+        
+    <ul>
+    {% for message in messages %}
+        <li> <strong> {{ message }} </strong> </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+</div>
 
-    <div class="row">
-            
-            <a href = "{{url_for('showCatItems', category_name = category.name)}}">
-                <h3>{{category.name}}</h3>
-            </a>
-            
-    </div>
-</a>
-{% endfor %}
+<div class="container-right">
+    <h1>
+        catagories
+    </h1>
+    <!-- listing catagories -->
+    {% for category in categories %}
+
+        <div class="row">
+                
+                <a class="links" href = "{{url_for('showCatItems', category_name = category.name)}}">
+                    <h3>{{category.name}}</h3>
+                </a>
+                
+        </div>
+    </a>
+    {% endfor %}
+</div>
+<div>
+    <h1>recents</h1>
+</div>
+
+{% endblock %}
