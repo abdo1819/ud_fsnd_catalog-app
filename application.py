@@ -110,7 +110,7 @@ def addItem(category_name):
             catItem.cat_id = request.form['catagory_id']
         session.add(catItem)
         session.commit()
-        flash('item Successfully Edited %s' % catItem.title)
+        flash('item Successfully added %s' % catItem.title)
         catagory = session.query(Category).filter_by(id=catItem.cat_id).one()
 
         return redirect(url_for('showCatItems', category_name=catagory.name))

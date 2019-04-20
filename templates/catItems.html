@@ -1,24 +1,20 @@
-{% with messages = get_flashed_messages() %}
-{% if messages %}
-    
-  <ul>
-  {% for message in messages %}
-      <li> <strong> {{ message }} </strong> </li>
-  {% endfor %}
-  </ul>
-  {% endif %}
-{% endwith %}
+{% extends "main.html" %}
+{% block content %}
 
+
+<div class="container-right">
 <a href = "{{url_for('addItem', category_name = category.name)}}">
-        <p>new</p>
+        <h1>new</h1>
     </a>            
 
 {% for item in catItems %}
 
     <div class="row">
-            <a href = "{{url_for('showItemDetail', category_name = category.name,item_title = item.title)}}">
+            <a class="links" href = "{{url_for('showItemDetail', category_name = category.name,item_title = item.title)}}">
                 <h3>{{item.title}}</h3>
             </a>
     </div>
 </a>
 {% endfor %}
+</div>
+{% endblock %}

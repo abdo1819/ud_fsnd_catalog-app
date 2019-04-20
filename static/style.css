@@ -3,6 +3,8 @@
 	--login-color:orange;
 	--text-header-color:white;
 	--links-color:rgb(182, 101, 2);
+	--flash-color:white;
+	--flash-back-color:green;
 }
 /* header */
 a{
@@ -44,7 +46,7 @@ body {
 }
 
 .white{
-color: var(--text-header-color)
+color: var(--text-header-color);
 }
 
 /* container */
@@ -61,4 +63,10 @@ color: var(--text-header-color)
 
 .links {
 	color: var(--links-color);
+}
+
+.flash{
+	margin: 10px 10% 10px 10%;
+	color: var(--flash-color);
+	background-color: var(--flash-back-color)
 }
