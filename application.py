@@ -2,9 +2,9 @@
 from flask import Flask, render_template, request, redirect
 from flask import jsonify, url_for, flash, make_response
 
-from sqlalchemy import create_engine, asc
+from sqlalchemy import create_engine, asc, desc
 from sqlalchemy.orm import sessionmaker
-from db_setup import Base, Category, CatItem
+from db_setup import Base, Category, CatItem, User,Log
 from flask import session as login_session
 
 import random
@@ -52,7 +52,10 @@ def categoryItemsJSON(category_id):
 @app.route('/catalog/')
 def showCategories():
     categories = session.query(Category).order_by(asc(Category.name))
-    return render_template("categories.html", categories=categories)
+    # log = session.query(CatItem, User).join(Log).filter(Log.user_id==User.id,CatItem.id==log.item_id).all()
+    log = session.query(CatItem).join(Log).order_by(desc(Log.time)).all()
+    # print(log[0].)
+    return render_template("categories.html", categories=categories,log=log)
 
 # http://localhost:5000/catalog/BASKETBALL/items
 @app.route('/catalog/<string:category_name>/items')
@@ -64,8 +67,12 @@ def showCatItems(category_name):
 
 # http://localhost:5000/catalog/BASKETBALL/Basketballs
 @app.route('/catalog/<string:category_name>/<string:item_title>')
-def showItemDetail(category_name, item_title):
+def showItemDetail(item_title,category_name=None):
     catItem = session.query(CatItem).filter_by(title=item_title).one()
+    itemOwner = session.query(User).filter_by(id=CatItem.id).one()
+    log = Log(item= catItem,user=itemOwner)
+    session.add(log)
+    session.commit()
     return render_template("catItem_user.html", catItem=catItem)
 
 # http://localhost:5000/catalog/Basketballs/edit

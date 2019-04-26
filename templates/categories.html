@@ -21,6 +21,14 @@
 </div>
 <div>
     <h1>recents</h1>
+    {%for item in log %}
+        <div class="row">
+            <a class="links" href="{{url_for('showItemDetail',item_title =item.title,category_name='None')}}">
+                <h3>{{item.title}} and {{item.category.name}}</h3>
+            </a>
+        </div>
+    {% endfor %}
+
 </div>
 
 {% endblock %}
