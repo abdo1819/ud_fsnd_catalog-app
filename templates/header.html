@@ -13,7 +13,14 @@
 				</button> 
 				</a>
 			{% else %}
-				<h3>{{login_session['username']}}</h3>			
+			<div>
+				<a href="{{url_for('disconnect')}}">
+					<button class="auoth_btn">
+					<span class="white" >logout</span>
+					</button>
+				</a>
+				<span >{{login_session['username']}}</span>	
+			</div>		
 			{% endif %} 
 					
 		</div>
