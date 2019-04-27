@@ -6,9 +6,16 @@
 		</a>
 	</div>
 	<div class="item_right ">
-					<button class="auoth_btn">
-                    <span class="white" >login</span>
-                    </button>
-		
+		<div> {% if not_user %}
+				<a href="{{url_for('showLogin')}}">
+				<button class="auoth_btn">
+				<span class="white" >login</span>
+				</button> 
+				</a>
+			{% else %}
+				<h3>{{login_session['username']}}</h3>			
+			{% endif %} 
+					
+		</div>
 	</div>
 </div>

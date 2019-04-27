@@ -1,20 +1,39 @@
 {% extends "main.html" %}
 {% block content %}
 
-
 <div class="container-right">
-<a href = "{{url_for('addItem', category_name = category.name)}}">
-        <h1>new</h1>
-    </a>            
+        <h1>
+            catagories
+        </h1>
+        <!-- listing catagories -->
+        {% for category in categories %}
+    
+            <div class="row">
+                    
+                    <a class="links" href = "{{url_for('showCatItems', category_name = category.name)}}">
+                        <h3>{{category.name}}</h3>
+                    </a>
+                    
+            </div>
+        </a>
+        {% endfor %}
+</div>
+<!-- TODO: item count and cat name -->
+<div>
+    <div {% if not_user %} 
+            style="visibility: hidden;"
+            {% endif %}>
+        <a href = "{{url_for('addItem', category_name = category.name)}}">
+            <h1>new</h1>
+        </a> 
+    </div>           
 
-{% for item in catItems %}
-
-    <div class="row">
-            <a class="links" href = "{{url_for('showItemDetail', category_name = category.name,item_title = item.title)}}">
-                <h3>{{item.title}}</h3>
-            </a>
-    </div>
-</a>
-{% endfor %}
+    {% for item in catItems %}
+        <div class="row">
+                <a class="links" href = "{{url_for('showItemDetail', category_name = category.name,item_title = item.title)}}">
+                    <h3>{{item.title}}</h3>
+                </a>
+        </div>
+    {% endfor %}
 </div>
 {% endblock %}

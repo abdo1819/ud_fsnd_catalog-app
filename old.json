@@ -1,0 +1,13 @@
+{
+    "web": {
+        "client_id": "907678801306-969cb2rticgq17i9849rnqb9t5el0eig.apps.googleusercontent.com",
+        "project_id": "catalog-ud-1556289504140",
+        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+        "token_uri": "https://oauth2.googleapis.com/token",
+        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+        "client_secret": "FMAIQ8H77ib2Nqo0gr8J5E3F",
+        "javascript_origins": [
+            "http://127.0.0.1:5000"
+        ]
+    }
+}

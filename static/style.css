@@ -70,3 +70,13 @@ color: var(--text-header-color);
 	color: var(--flash-color);
 	background-color: var(--flash-back-color)
 }
+
+.gbutton {
+	-webkit-transition-duration: 0.4s; /* Safari */
+	transition-duration: 0.4s;
+  }
+  
+.gbutton:hover {
+	background-color: #4CAF50; /* Green */
+	color: white;
+  }

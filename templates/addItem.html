@@ -15,7 +15,7 @@
     <select name="catagory_id" >
         {% for category in categories %}
             <option value="{{category.id}}"
-                {% if category.id == selected_id%}
+                {% if category.id == selected_id %}
                 selected
                 {% endif %}
                 >

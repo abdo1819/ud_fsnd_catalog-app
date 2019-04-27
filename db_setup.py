@@ -15,6 +15,8 @@ class User(Base):
     name =Column(String(80), nullable = False)
     id = Column(Integer, primary_key = True)
     email =Column(String(150), nullable = True)
+    picture = Column(String(250), nullable = True)
+
 
 class Category(Base):
     __tablename__ = 'category'

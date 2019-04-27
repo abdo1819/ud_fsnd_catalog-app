@@ -19,7 +19,10 @@
     </a>
     {% endfor %}
 </div>
-<div>
+<!-- TODO: add item for users -->
+<div {% if not_user %} 
+    style="visibility: hidden;"
+     {% endif %}   >
     <h1>recents</h1>
     {%for item in log %}
         <div class="row">

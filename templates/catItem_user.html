@@ -9,13 +9,17 @@
     <p>
         {{catItem.description}}
     </p>
-    <a href = "{{url_for('editItem', item_title = catItem.title)}}">
-        <p>edit</p>
-    </a>
+        <div {% if not_user %} 
+        style="visibility: hidden;"
+        {% endif %} >
+        <a href = "{{url_for('editItem', item_title = catItem.title)}}">
+            <p>edit</p>
+        </a>
 
-    <a href="{{url_for('deleteItem', item_title = catItem.title)}}">
-        <p>delete</p>
-    </a>
+        <a href="{{url_for('deleteItem', item_title = catItem.title)}}">
+            <p>delete</p>
+        </a>
+        </div>
     </div>
         
 
