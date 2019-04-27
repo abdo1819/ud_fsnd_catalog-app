@@ -44,7 +44,7 @@ class CatItem(Base):
     cat_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     
-    user_id =Column(Integer,ForeignKey('user.id'), nullable=True)
+    user_id =Column(Integer,ForeignKey('user.id'), nullable=False)
     user =relationship(User)
 
 # serilizing item

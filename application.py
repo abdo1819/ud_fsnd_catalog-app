@@ -63,7 +63,6 @@ def getUserID(email):
 
 @app.route('/login')
 def showLogin():
-    login=True
     state = ''.join(
         random.choice(string.ascii_uppercase + string.digits) for x in range(32))
     login_session['state'] = state
@@ -256,16 +255,19 @@ def showCatItems(category_name):
 @app.route('/catalog/<string:category_name>/<string:item_title>')
 def showItemDetail(item_title,category_name=None):
     catItem = session.query(CatItem).filter_by(title=item_title).one()
-    itemOwner = session.query(User).filter_by(id=CatItem.id).one()
+    itemOwner = session.query(User).filter_by(id=catItem.user_id).one()
     not_owner=True
+    not_user=True
+        
     if 'username' in login_session:
+        not_user=False
         log = Log(item= catItem,user=getUserInfo(login_session['user_id']))    
         session.add(log)
         session.commit()    
         if  itemOwner.id == login_session['user_id']:
             not_owner=False
 
-    return render_template("catItem_user.html", catItem=catItem,not_user=not_owner,login_session=login_session)
+    return render_template("catItem_user.html", catItem=catItem,not_user=not_user,login_session=login_session,not_owner=not_owner)
 
 # http://localhost:5000/catalog/Basketballs/edit
 @app.route('/catalog/<string:item_title>/edit', methods=['GET', 'POST'])
@@ -317,7 +319,7 @@ def addItem(category_name):
         flash('item Successfully added %s' % catItem.title)
         catagory = session.query(Category).filter_by(id=catItem.cat_id).one()
 
-        return redirect(url_for('showCatItems', category_name=catagory.name))
+        return redirect(url_for('showCatItems', category_name=catagory.name,login_session=login_session))
 
     # handling get request for edit page
     else:
@@ -326,7 +328,7 @@ def addItem(category_name):
         
         categories = session.query(Category).all()
         return render_template('addItem.html',
-                               categories=categories,selected_id =selected_catagory.id )
+                               categories=categories,selected_id =selected_catagory.id,login_session=login_session )
 
 
 

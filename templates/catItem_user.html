@@ -9,7 +9,7 @@
     <p>
         {{catItem.description}}
     </p>
-        <div {% if not_user %} 
+        <div {% if not_owner %} 
         style="visibility: hidden;"
         {% endif %} >
         <a href = "{{url_for('editItem', item_title = catItem.title)}}">

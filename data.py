@@ -40,19 +40,19 @@ session.add(category2)
 session.commit()
 
 
-catItem1 = CatItem(title="Volleyball", description="another ball", category=category2)
+catItem1 = CatItem(title="Volleyball", description="another ball", category=category2 ,user=user1)
 
 session.add(catItem1)
 session.commit()
 
 catItem2 = CatItem(title="Volleyball Fiber Antennas",
-                   description="the fiber antennas", category=category2)
+                   description="the fiber antennas", category=category2, user=user1)
 
 session.add(catItem2)
 session.commit()
 
 catItem2 = CatItem(title="Volleyball Cotton Nets", 
-                   description="the Antennas", category=category2)
+                   description="the Antennas", category=category2, user=user1)
 
 session.add(catItem2)
 session.commit()
@@ -80,7 +80,7 @@ catItem1 = CatItem(title="Bibs", description="it`s name seem strange but ok", ca
 session.add(catItem1)
 session.commit()
 
-catItem1 = CatItem(title="Hockey Kit bag", description="your hand would be free don`t worry", category=category1)
+catItem1 = CatItem(title="Hockey Kit bag", description="your hand would be free don`t worry", category=category1, user=user1)
 
 session.add(catItem1)
 session.commit()
