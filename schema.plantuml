@@ -3,9 +3,10 @@
 skinparam defaultFontName Courier
 
 Class User {
-    INTEGER      ★ id   
-    VARCHAR[150] ⚪ email
-    VARCHAR[80]  ⚪ name 
+    INTEGER      ★ id     
+    VARCHAR[150] ⚪ email  
+    VARCHAR[80]  ⚪ name   
+    VARCHAR[250] ⚪ picture
 }
 
 Class Category {
@@ -14,13 +15,13 @@ Class Category {
 }
 
 Class CatItem {
-    INTEGER      ★ id         
-    INTEGER      ☆ cat_id     
-    INTEGER      ☆ user_id    
-    VARCHAR[550] ⚪ description
-    VARCHAR[100] ⚪ title      
-    +            category     
-    +            user         
+    INTEGER       ★ id         
+    INTEGER       ☆ cat_id     
+    INTEGER       ☆ user_id    
+    VARCHAR[1000] ⚪ description
+    VARCHAR[100]  ⚪ title      
+    +             category     
+    +             user         
 }
 
 Class Log {

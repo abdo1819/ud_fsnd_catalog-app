@@ -40,7 +40,7 @@ class CatItem(Base):
 
     title = Column(String(100), nullable=False)
     id = Column(Integer, primary_key=True)
-    description = Column(String(550))
+    description = Column(String(1000))
     cat_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     
@@ -79,11 +79,11 @@ Base.metadata.create_all(engine)
 
 # to generate uml code plantuml use vscode extention
 # http://www.plantuml.com
-# if __name__ == '__main__':
-#     import codecs
-#     import sadisplay
+if __name__ == '__main__':
+    import codecs
+    import sadisplay
 
-#     desc = sadisplay.describe(globals().values())
+    desc = sadisplay.describe(globals().values())
 
-#     with codecs.open('schema.plantuml', 'w', encoding='utf-8') as f:
-#         f.write(sadisplay.plantuml(desc))
+    with codecs.open('schema.plantuml', 'w', encoding='utf-8') as f:
+        f.write(sadisplay.plantuml(desc))

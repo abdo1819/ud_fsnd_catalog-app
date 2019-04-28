@@ -1,5 +1,5 @@
 :root{
-	--top-color:blue;
+	--top-color:#3d3d9c;
 	--login-color:orange;
 	--text-header-color:white;
 	--links-color:rgb(182, 101, 2);
@@ -63,6 +63,10 @@ color: var(--text-header-color);
 
 .links {
 	color: var(--links-color);
+}
+
+.row {
+	margin: 10px auto 5px auto;
 }
 
 .flash{
