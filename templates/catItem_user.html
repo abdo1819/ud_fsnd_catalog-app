@@ -12,12 +12,12 @@
         <div {% if not_owner %} 
         style="visibility: hidden;"
         {% endif %} >
-        <a href = "{{url_for('editItem', item_title = catItem.title)}}">
-            <p>edit</p>
+        <a class="links" href = "{{url_for('editItem', item_title = catItem.title)}}">
+            edit
         </a>
-
-        <a href="{{url_for('deleteItem', item_title = catItem.title)}}">
-            <p>delete</p>
+        <span style="margin-left:10px;margin-right: 10px">|</span>
+        <a class="links" href="{{url_for('deleteItem', item_title = catItem.title)}}">
+            delete
         </a>
         </div>
     </div>

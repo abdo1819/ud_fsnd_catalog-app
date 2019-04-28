@@ -23,8 +23,8 @@
     <div {% if not_user %} 
             style="visibility: hidden;"
             {% endif %}>
-        <a href = "{{url_for('addItem', category_name = category.name)}}">
-            <h1>new</h1>
+        <a class="links" href = "{{url_for('addItem', category_name = category.name)}}">
+            <p>add item</p>
         </a> 
     </div>           
 

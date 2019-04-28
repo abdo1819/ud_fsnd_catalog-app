@@ -296,7 +296,7 @@ def editItem(item_title):
     else:
         categories = session.query(Category).all()
         return render_template('edit_item.html',
-                               catItem=catItem, categories=categories)
+                               catItem=catItem, categories=categories,login_session=login_session)
 
 
 # http://localhost:5000/catalog/Basketballs/edit
@@ -351,7 +351,7 @@ def deleteItem(item_title):
 
     else:
         return render_template('delete_item.html',
-                               catagory=catagory, catItem=catItem)
+                               catagory=catagory, catItem=catItem,login_session=login_session)
     pass
 
 
