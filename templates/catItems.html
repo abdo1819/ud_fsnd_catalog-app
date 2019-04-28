@@ -6,12 +6,12 @@
             catagories
         </h1>
         <!-- listing catagories -->
-        {% for category in categories %}
+        {% for _category in categories %}
     
             <div class="row">
                     
-                    <a class="links" href = "{{url_for('showCatItems', category_name = category.name)}}">
-                        <h3>{{category.name}}</h3>
+                    <a class="links" href = "{{url_for('showCatItems', category_name = _category.name)}}">
+                        {{_category.name}}
                     </a>
                     
             </div>
@@ -27,11 +27,11 @@
             <p>add item</p>
         </a> 
     </div>           
-
+    <h2> <span style="opacity: .7;">({{count}})</span> items in {{category.name}}</h2>
     {% for item in catItems %}
         <div class="row">
                 <a class="links" href = "{{url_for('showItemDetail', category_name = category.name,item_title = item.title)}}">
-                    <h3>{{item.title}}</h3>
+                    {{item.title}}
                 </a>
         </div>
     {% endfor %}

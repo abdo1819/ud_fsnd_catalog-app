@@ -12,14 +12,14 @@
         <div class="row">
                 
                 <a class="links" href = "{{url_for('showCatItems', category_name = category.name)}}">
-                    <h3>{{category.name}}</h3>
+                    {{category.name}}
                 </a>
                 
         </div>
     </a>
     {% endfor %}
 </div>
-<!-- TODO: add item for users -->
+
 <div {% if not_user %} 
     style="visibility: hidden;"
      {% endif %}   >
@@ -27,8 +27,9 @@
     {%for item in log %}
         <div class="row">
             <a class="links" href="{{url_for('showItemDetail',item_title =item.title,category_name='None')}}">
-                <h3>{{item.title}} and {{item.category.name}}</h3>
+                {{item.title}}
             </a>
+            <span style="opacity: 0.5;">( {{item.category.name}} )</span>
         </div>
     {% endfor %}
 

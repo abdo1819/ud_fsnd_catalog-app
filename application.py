@@ -247,9 +247,10 @@ def showCatItems(category_name):
     not_user=True
     if 'username' in login_session:
         not_user=False
+    count = len(catItems)
     return render_template("catItems.html",
                            catItems=catItems, category=catagory,categories=categories
-                           ,not_user=not_user,login_session=login_session)
+                           ,count=count,not_user=not_user,login_session=login_session)
 
 # http://localhost:5000/catalog/BASKETBALL/Basketballs
 @app.route('/catalog/<string:category_name>/<string:item_title>')
