@@ -79,11 +79,11 @@ Base.metadata.create_all(engine)
 
 # to generate uml code plantuml use vscode extention
 # http://www.plantuml.com
-if __name__ == '__main__':
-    import codecs
-    import sadisplay
+# if __name__ == '__main__':
+#     import codecs
+#     import sadisplay
 
-    desc = sadisplay.describe(globals().values())
+#     desc = sadisplay.describe(globals().values())
 
-    with codecs.open('schema.plantuml', 'w', encoding='utf-8') as f:
-        f.write(sadisplay.plantuml(desc))
+#     with codecs.open('schema.plantuml', 'w', encoding='utf-8') as f:
+#         f.write(sadisplay.plantuml(desc))
