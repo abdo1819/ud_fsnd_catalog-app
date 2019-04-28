@@ -21,6 +21,13 @@
 </div>
 
 <div >
+    <div {% if not_user %} 
+            style="visibility: hidden;"
+            {% endif %}>
+        <a class="links" href = "{{url_for('addItem', category_name = categories[0].name)}}">
+            <p>add item</p>
+        </a> 
+    </div>
     <h1>recents</h1>
     {%for item in log %}
         <div class="row">

@@ -14,10 +14,15 @@
     <label for="catagory">catagory</label>
 
     <select name="catagory_id" >
-        {% for category in categories %}
-            <option value="{{category.id}}">{{category.name}}</option>
-        {% endfor %}
-    </select>
+            {% for category in categories %}
+                <option value="{{category.id}}"
+                    {% if category.id == selected_id %}
+                    selected
+                    {% endif %}
+                    >
+                    {{category.name}}</option>
+            {% endfor %}
+        </select>
 
     <br/>
 

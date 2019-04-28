@@ -9,7 +9,7 @@
         gapi.load('auth2', function() {
           auth2 = gapi.auth2.init({
             client_id: '907678801306-3eo5f32if541ct5uunehcvckbako4v4k.apps.googleusercontent.com',
-            // Scopes to request in addition to 'profile' and 'email'
+            // Scopes to request in addition to 'openid' and 'email'
             scope: 'openid email'
           });
         });
@@ -26,7 +26,7 @@
 
 <!--TODO: Use an image that follows the branding guidelines in a real app -->
 <button id="signinButton" class="gbutton">Sign in with Google</button>
-<span id="wait" style="visibility: hidden"> please waite ...</span>
+<span id="wait" style="visibility: hidden"> please wait ...</span>
 
 <script>
 

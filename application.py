@@ -62,7 +62,7 @@ def showLogin():
                                   string.digits) for x in range(32))
     login_session['state'] = state
     return render_template('login.html', STATE=state,
-                           login_session=login_session)
+                           login_session=login_session, not_user=True)
 
 
 @app.route('/gconnect', methods=['POST'])
@@ -310,9 +310,13 @@ def editItem(item_title):
 
     # handling get request for edit page
     else:
+        selected_catagory = session.query(Category).filter_by(
+                                                    id=catItem.cat_id).one()
+
         categories = session.query(Category).all()
         return render_template('edit_item.html', catItem=catItem,
                                categories=categories,
+                               selected_id=selected_catagory.id,
                                login_session=login_session)
 
 

@@ -30,10 +30,25 @@ and the ability to edit/add items
 ## open homepage by visiting in browser
 [localhost:5000](http://localhost:5000/)
 * don't use __0.0.0.0:5000__ for google aouth2 to work
- 
-[catalog in json](http://localhost:5000/catalog/json)
 
-[](/category/<int:category_id>/items/json)
+## json end point
+> [full catalog in json](http://localhost:5000/catalog/json)
 
-<!-- TODO recent created -->
- # site pages
+> [items in specifc catagory by id (1)](http://localhost:5000/category/1/items/json)
+
+
+ # list site pages
+> [home](http://localhost:5000/catalog/json)
+
+> [items in first catagory](http://localhost:5000/catalog/Basketball/items)
+
+> [item detail](http://localhost:5000/catalog/Basketball/Basketball%20ball%20)
+
+> [login page](http://localhost:5000/login)
+
+> [add item](http://localhost:5000/catalog/Basketball/add)
+
+* most be user who created
+> edit: http://localhost:5000/catalog/\<item name\>/edit
+
+> delete: http://localhost:5000/catalog/\<item name\>/edit
