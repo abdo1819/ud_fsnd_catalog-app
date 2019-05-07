@@ -44,11 +44,14 @@ def createUser(login_session):
 
 
 def getUserInfo(user_id):
+    ''' return user object using id'''
     user = session.query(User).filter_by(id=user_id).one()
     return user
 
 
 def getUserID(email):
+    ''' return user id based on email address
+    returns null if user not exist'''
     try:
         user = session.query(User).filter_by(email=email).one()
         return user.id
@@ -58,6 +61,7 @@ def getUserID(email):
 
 @app.route('/login')
 def showLogin():
+    '''login page and adding session state for user'''
     state = ''.join(random.choice(string.ascii_uppercase +
                                   string.digits) for x in range(32))
     login_session['state'] = state
@@ -67,6 +71,7 @@ def showLogin():
 
 @app.route('/gconnect', methods=['POST'])
 def gconnect():
+    '''login with google account'''
     # Validate state token
     if request.args.get('state') != login_session['state']:
         response = make_response(json.dumps('Invalid state parameter.'), 401)
@@ -164,6 +169,7 @@ def gconnect():
 
 @app.route('/gdisconnect')
 def gdisconnect():
+    '''disconect google account'''
     access_token = login_session.get('access_token')
     if access_token is None:
         response = make_response(
@@ -187,6 +193,8 @@ def gdisconnect():
 
 @app.route('/disconnect')
 def disconnect():
+    '''remove user from session and disconecting the account'''
+
     if 'gplus_id' in login_session:
         if login_session['provider'] == 'google':
             gdisconnect()
@@ -206,6 +214,7 @@ def disconnect():
 
 @app.route('/catalog/json')
 def categoryJSON():
+    '''return json of all catagories and items'''
     categories = session.query(Category).all()
     json_catagory = [c.serialize for c in categories]
     count = 0
@@ -221,6 +230,7 @@ def categoryJSON():
 
 @app.route('/category/<int:category_id>/items/json')
 def categoryItemsJSON(category_id):
+    '''return json of items in catagory by id'''
     items = session.query(CatItem).filter_by(cat_id=category_id).all()
     return jsonify(categories_items=[i.serialize for i in items])
 
@@ -229,6 +239,8 @@ def categoryItemsJSON(category_id):
 @app.route('/')
 @app.route('/catalog/')
 def showCategories():
+    '''GET: return a page of avaialable catagories
+    and recent added items '''
     categories = session.query(Category).order_by(asc(Category.name))
 
     # get recent created items
@@ -245,6 +257,9 @@ def showCategories():
 # http://localhost:5000/catalog/BASKETBALL/items
 @app.route('/catalog/<string:category_name>/items')
 def showCatItems(category_name):
+    '''GET: return a page of avaialable catagories
+    and items in specified catagory '''
+
     categories = session.query(Category).order_by(asc(Category.name))
     catagory = session.query(Category).filter_by(name=category_name).one()
     catItems = session.query(CatItem).filter_by(cat_id=catagory.id).all()
@@ -263,6 +278,8 @@ def showCatItems(category_name):
 # http://localhost:5000/catalog/BASKETBALL/Basketballs
 @app.route('/catalog/<string:category_name>/<string:item_title>')
 def showItemDetail(item_title, category_name=None):
+    ''' show item and description
+    with buttons for edit and delete for users '''
     catItem = session.query(CatItem).filter_by(title=item_title).one()
     itemOwner = session.query(User).filter_by(id=catItem.user_id).one()
 
@@ -285,6 +302,13 @@ def showItemDetail(item_title, category_name=None):
 # http://localhost:5000/catalog/Basketballs/edit
 @app.route('/catalog/<string:item_title>/edit', methods=['GET', 'POST'])
 def editItem(item_title):
+    '''
+    GET : response with form for adding editing item
+
+    POST: add item to database using values from form
+    if value is empty use last one
+    '''
+
     if 'username' not in login_session:
         return redirect('/login')
 
@@ -323,18 +347,34 @@ def editItem(item_title):
 # http://localhost:5000/catalog/Basketballs/edit
 @app.route('/catalog/<string:category_name>/add', methods=['GET', 'POST'])
 def addItem(category_name):
+    '''
+    GET : response with form for adding new item
 
+    POST: add item to database using values from form
+    values cannot be empty
+    '''
     if 'username' not in login_session:
         return redirect('/login')
 
     catItem = CatItem()
     if request.method == 'POST':
+        # checking values from the form
         if request.form['title']:
             catItem.title = request.form['title']
+        else:
+            flash('item title cannot be empty ')
+            return redirect(url_for('addItem', category_name=category_name))
+
+        # description can be empty
         if request.form['description']:
             catItem.description = request.form['description']
+
         if request.form['catagory_id']:
             catItem.cat_id = request.form['catagory_id']
+        else:
+            flash('please choose catagory')
+            return redirect(url_for('addItem', category_name=category_name))
+
         catItem.user_id = login_session['user_id']
         session.add(catItem)
         # add log for new items
@@ -363,6 +403,12 @@ def addItem(category_name):
 # http://localhost:5000/catalog/Basketballs/delete
 @app.route('/catalog/<string:item_title>/delete', methods=['GET', 'POST'])
 def deleteItem(item_title):
+    '''
+    GET : response with form to confirm item deleting
+
+    POST: remove item from database if user is item creator
+    '''
+
     if 'username' not in login_session:
         return redirect('/login')
     catItem = session.query(CatItem).filter_by(title=item_title).one()
