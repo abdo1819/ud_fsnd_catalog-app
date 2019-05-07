@@ -368,7 +368,6 @@ def addItem(category_name):
         # description can be empty
         if request.form['description']:
             catItem.description = request.form['description']
-
         if request.form['catagory_id']:
             catItem.cat_id = request.form['catagory_id']
         else:
