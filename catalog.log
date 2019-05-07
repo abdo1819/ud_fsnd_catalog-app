@@ -53,3 +53,64 @@ INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:47] "GET /catalog/Basketball/item
 DEBUG:root:Abdo Hashem loged out
 INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:50] "GET /disconnect HTTP/1.1" 302 -
 INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:50] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:42:27] "GET /catalog/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:42:31] "GET /category/1/items/json HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/media/abdo/data/abdo/fs_nd_uda/fullstack-nanodegree-vm-master/vagrant/catalog/application.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:53:55] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:54:03] "GET /catalog/1/item/1/json HTTP/1.1" 404 -
+INFO:werkzeug: * Detected change in '/media/abdo/data/abdo/fs_nd_uda/fullstack-nanodegree-vm-master/vagrant/catalog/application.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:54:22] "GET /catalog/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:54:39] "GET /category/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:54:45] "GET /category/1/items/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json HTTP/1.1" 500 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:01] "GET /category/1/item/1/json?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in '/media/abdo/data/abdo/fs_nd_uda/fullstack-nanodegree-vm-master/vagrant/catalog/application.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:55:22] "GET /category/1/item/1/json HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:22:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:22:37] "GET /catalog/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:22:41] "GET /category/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:23:40] "GET /catalog/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:24:50] "GET /catalog/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:29:50] "GET /category/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:29:53] "GET /category/1/items/json HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:10] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:13] "GET /login HTTP/1.1" 200 -
+INFO:oauth2client.client:Successfully retrieved access token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://www.googleapis.com:443 "GET /oauth2/v1/userinfo?access_token=ya29.GlsCB8ygjnLvM_fZF3dmtAXtfPD46EkbESCRQBPOQWJ9HZJ1B2Y2mnip_lSRPLTTYMLeyPAvHX4Mkia7q3g21M61MMxsn_2e6YAAYj91Qjl-3zFLuZWY_hFp9oEg&alt=json HTTP/1.1" 200 None
+INFO:root:Abdo Hashem logged in 
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:23] "POST /gconnect?state=ZUZD8N4Q1DWRSNNPDE7YVQ5T52KENNXS HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:23] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:30] "GET /catalog/None/another%20itew HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:31] "GET /catalog/another%20itew/delete HTTP/1.1" 200 -
+INFO:root:item Successfully deleted another itew
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:33] "POST /catalog/another%20itew/delete HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:33] "GET /catalog/Volleyball/items HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:36] "GET /catalog/Volleyball/add HTTP/1.1" 200 -
+INFO:root:None item added 
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:56] "POST /catalog/Volleyball/add HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:38:56] "GET /catalog/Volleyball/items?login_session=%3CSecureCookieSession+%7B%27state%27%3A+%27ZUZD8N4Q1DWRSNNPDE7YVQ5T52KENNXS%27%2C+%27access_token%27%3A+%27ya29.GlsCB8ygjnLvM_fZF3dmtAXtfPD46EkbESCRQBPOQWJ9HZJ1B2Y2mnip_lSRPLTTYMLeyPAvHX4Mkia7q3g21M61MMxsn_2e6YAAYj91Qjl-3zFLuZWY_hFp9oEg%27%2C+%27gplus_id%27%3A+%27101723563585876935811%27%2C+%27username%27%3A+%27Abdo+Hashem%27%2C+%27picture%27%3A+%27https%3A%2F%2Flh6.googleusercontent.com%2F-8sRCaJ6qQe4%2FAAAAAAAAAAI%2FAAAAAAAAABA%2FZB5P569RvOo%2Fphoto.jpg%27%2C+%27email%27%3A+%27abdo14hashem15%40gmail.com%27%2C+%27provider%27%3A+%27google%27%2C+%27user_id%27%3A+2%2C+%27_flashes%27%3A+%5B%28%27message%27%2C+%27item+Successfully+added+volly+item%27%29%5D%7D%3E HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 22:39:00] "GET /catalog/ HTTP/1.1" 200 -

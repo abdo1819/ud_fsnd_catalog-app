@@ -216,7 +216,7 @@ def disconnect():
         flash("You were not logged in")
         return redirect(url_for('showCategories'))
 
-
+# http://localhost:5000/catalog/json
 @app.route('/catalog/json')
 def categoryJSON():
     '''return json of all catagories and items'''
@@ -232,12 +232,27 @@ def categoryJSON():
 
     return jsonify(cataoeries=json_catagory)
 
+# http://localhost:5000/category/json
+@app.route('/category/json')
+def categoryJSON_nodetail():
+    '''return json of all catagories'''
+    categories = session.query(Category).all()
+    return jsonify(categories_items=[c.serialize for c in categories])
 
+# http://localhost:5000/category/1/items/json
 @app.route('/category/<int:category_id>/items/json')
 def categoryItemsJSON(category_id):
     '''return json of items in catagory by id'''
     items = session.query(CatItem).filter_by(cat_id=category_id).all()
     return jsonify(categories_items=[i.serialize for i in items])
+
+# http://localhost:5000/category/1/item/1/json
+@app.route('/category/<int:category_id>/item/<int:catItem_id>/json')
+def itemJSON(category_id, catItem_id):
+    '''return json of item by id'''
+    item = session.query(CatItem).filter_by(id=catItem_id).one()
+    return jsonify(item=item.serialize)
+
 
 # Show all categories
 # http://localhost:5000/catalog/
@@ -433,7 +448,7 @@ def deleteItem(item_title):
         flash('item Successfully deleted %s' % catItem.title)
 
         logging.info('item Successfully deleted %s' % catItem.title)
-        
+
         return redirect(url_for('showCatItems', category_name=catagory.name))
 
     else:
