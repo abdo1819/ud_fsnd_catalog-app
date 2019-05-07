@@ -1,0 +1,55 @@
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:05] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:11] "GET /catalog/None/tiew HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:13] "GET /catalog/ HTTP/1.1" 200 -
+DEBUG:root:Abdo Hashem loged out
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:16] "GET /disconnect HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:16] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:36] "GET /catalog/None/hockey%20item HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:38] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:40] "GET /catalog/None/tiew HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:41] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:42] "GET /login HTTP/1.1" 200 -
+INFO:oauth2client.client:Successfully retrieved access token
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): www.googleapis.com:443
+DEBUG:urllib3.connectionpool:https://www.googleapis.com:443 "GET /oauth2/v1/userinfo?access_token=ya29.GlsCBwxlYp4a7mHQs3FZuHKBzmmFjqTRgmLa1VEmO-prOQJN1zxwiOwxZuMQ7yja7kZH30GFCp7LvEQaq1XcEJtUOLXk-ZZVk_3xsWYjWOvvvjUsnOwt-4u9RI-q&alt=json HTTP/1.1" 200 None
+INFO:root:Abdo Hashem logged in 
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:51] "POST /gconnect?state=6E3FADL18H707SANWSUV2Q269UZK7FM7 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:52] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:54] "GET /catalog/None/tiew HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:55] "GET /catalog/tiew/delete HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:56] "POST /catalog/tiew/delete HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:32:56] "GET /catalog/Volleyball/items HTTP/1.1" 200 -
+INFO:werkzeug: * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 628-073-556
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:01] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:04] "GET /catalog/Basketball/add HTTP/1.1" 200 -
+INFO:root:None item added 
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:12] "POST /catalog/Basketball/add HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:12] "GET /catalog/Basketball/items?login_session=%3CSecureCookieSession+%7B%27state%27%3A+%276E3FADL18H707SANWSUV2Q269UZK7FM7%27%2C+%27access_token%27%3A+%27ya29.GlsCBwxlYp4a7mHQs3FZuHKBzmmFjqTRgmLa1VEmO-prOQJN1zxwiOwxZuMQ7yja7kZH30GFCp7LvEQaq1XcEJtUOLXk-ZZVk_3xsWYjWOvvvjUsnOwt-4u9RI-q%27%2C+%27gplus_id%27%3A+%27101723563585876935811%27%2C+%27username%27%3A+%27Abdo+Hashem%27%2C+%27picture%27%3A+%27https%3A%2F%2Flh6.googleusercontent.com%2F-8sRCaJ6qQe4%2FAAAAAAAAAAI%2FAAAAAAAAABA%2FZB5P569RvOo%2Fphoto.jpg%27%2C+%27email%27%3A+%27abdo14hashem15%40gmail.com%27%2C+%27provider%27%3A+%27google%27%2C+%27user_id%27%3A+2%2C+%27_flashes%27%3A+%5B%28%27message%27%2C+%27item+Successfully+added+newba%27%29%5D%7D%3E HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:14] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:21] "GET /catalog/None/newba HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:22] "GET /catalog/newba/delete HTTP/1.1" 200 -
+INFO:root:item Successfully deleted newba
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:23] "POST /catalog/newba/delete HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:23] "GET /catalog/Basketball/items HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:26] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:28] "GET /catalog/None/another%20item HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:30] "GET /catalog/another%20item/edit HTTP/1.1" 200 -
+INFO:root:another itew item Edited 
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:38] "POST /catalog/another%20item/edit HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:38] "GET /catalog/Volleyball/items HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:41] "GET /catalog/ HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:44] "GET /catalog/None/item HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:45] "GET /catalog/item/delete HTTP/1.1" 200 -
+INFO:root:item Successfully deleted item
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:47] "POST /catalog/item/delete HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:47] "GET /catalog/Basketball/items HTTP/1.1" 200 -
+DEBUG:root:Abdo Hashem loged out
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:50] "GET /disconnect HTTP/1.1" 302 -
+INFO:werkzeug:127.0.0.1 - - [07/May/2019 21:39:50] "GET /catalog/ HTTP/1.1" 200 -

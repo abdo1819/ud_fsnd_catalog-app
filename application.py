@@ -1,4 +1,5 @@
 #!/usr/bin/env python3.7
+import logging
 from flask import Flask, render_template, request, redirect
 from flask import jsonify, url_for, flash, make_response
 
@@ -29,6 +30,7 @@ app = Flask(__name__)
 # prevent auto sorting from jsonify
 app.config['JSON_SORT_KEYS'] = False
 
+logging.basicConfig(filename='catalog.log', level=logging.DEBUG)
 # User Helper Functions
 
 
@@ -40,6 +42,7 @@ def createUser(login_session):
     session.add(newUser)
     session.commit()
     user = session.query(User).filter_by(email=login_session['email']).one()
+    logging.info('new user created id %s', user.id)
     return user.id
 
 
@@ -116,7 +119,7 @@ def gconnect():
     if result['issued_to'] != CLIENT_ID:
         response = make_response(
             json.dumps("Token's client ID does not match app's."), 401)
-        print("Token's client ID does not match app's.")
+        logging.debug("Token's client ID does not match app's.")
         response.headers['Content-Type'] = 'application/json'
         return response
 
@@ -162,7 +165,8 @@ def gconnect():
     output += ''' " style = "width: 300px; height: 300px;border-radius: 150px;
               -webkit-border-radius: 150px;-moz-border-radius: 150px;"> '''
     flash("you are now logged in as %s" % login_session['username'])
-    print("done!")
+
+    logging.info('%s logged in ', login_session['username'])
 
     return output
 
@@ -194,7 +198,7 @@ def gdisconnect():
 @app.route('/disconnect')
 def disconnect():
     '''remove user from session and disconecting the account'''
-
+    name = login_session['username']
     if 'gplus_id' in login_session:
         if login_session['provider'] == 'google':
             gdisconnect()
@@ -206,6 +210,7 @@ def disconnect():
         del login_session['user_id']
         del login_session['provider']
         flash("You have successfully been logged out.")
+        logging.debug('%s loged out', name)
         return redirect(url_for('showCategories'))
     else:
         flash("You were not logged in")
@@ -328,6 +333,9 @@ def editItem(item_title):
         session.add(catItem)
         session.commit()
         flash('item Successfully Edited %s' % catItem.title)
+
+        logging.info('%s item Edited ' % catItem.title)
+
         catagory = session.query(Category).filter_by(id=catItem.cat_id).one()
 
         return redirect(url_for('showCatItems', category_name=catagory.name))
@@ -376,6 +384,9 @@ def addItem(category_name):
 
         catItem.user_id = login_session['user_id']
         session.add(catItem)
+
+        logging.info('%s item added ' % catItem.id)
+
         # add log for new items
         log = Log(item=catItem, user=getUserInfo(login_session['user_id']))
         session.add(log)
@@ -420,6 +431,9 @@ def deleteItem(item_title):
         session.delete(catItem)
         session.commit()
         flash('item Successfully deleted %s' % catItem.title)
+
+        logging.info('item Successfully deleted %s' % catItem.title)
+        
         return redirect(url_for('showCatItems', category_name=catagory.name))
 
     else:
